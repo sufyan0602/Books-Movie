@@ -4,11 +4,11 @@ A personal media tracking app for physical books and movies. Built with Python a
 
 ## Overview
 
-This project lets you manage a local directory of your physical book and movie collection — add entries, list them, search by title, and track read/watched status.
+This project lets you manage a local directory of your physical book and movie collection — add entries, list them, search by title, track read/watched status, and delete entries.
 
 Built in phases:
-- **Phase 1** ✅ — Python + SQLite backend (current)
-- **Phase 2** — Web frontend
+- **Phase 1** ✅ — Python + SQLite backend (complete)
+- **Phase 2** — Web frontend (Flask)
 - **Phase 3** — Migrate from SQLite to PostgreSQL
 
 ---
@@ -20,18 +20,17 @@ Built in phases:
 - Search by title (partial match)
 - Mark a book as `READ` / `UNREAD`
 - Mark a movie as `WATCHED` / `UNWATCHED`
+- Delete a book or movie by ID
+- Status validation (rejects invalid input)
 - Automatically records the date each entry was added
 
 ---
 
 ## Project Structure
-
-```
 media-library/
 ├── database.py       # Creates the SQLite database and tables
 ├── main.py           # All core functions
 └── media_library.db  # Auto-generated SQLite database
-```
 
 ---
 
@@ -89,6 +88,10 @@ search_movies("inter")
 # Update status
 update_book_status(1, "READ")
 update_movie_status(1, "WATCHED")
+
+# Delete
+delete_book(1)
+delete_movie(1)
 ```
 
 ---
@@ -102,8 +105,8 @@ update_movie_status(1, "WATCHED")
 
 ## Roadmap
 
-- [ ] Web frontend (Flask or FastAPI)
+- [ ] Web frontend (Flask)
 - [ ] PostgreSQL migration
 - [ ] Filter by genre or year
-- [ ] Delete entries
+- [x] Delete entries
 - [ ] Export to CSV
