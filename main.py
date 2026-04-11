@@ -62,6 +62,8 @@ def search_movies(searchword):
         print(row)
 
 def update_book_status(book_id, status):
+    if status not in ["READ", "UNREAD"]:
+        raise ValueError("Invalid status. Must be READ or UNREAD")
     with sqlite3.connect("media_library.db") as connect:
         cursor = connect.cursor()
         cursor.execute("""--sql
@@ -70,11 +72,29 @@ def update_book_status(book_id, status):
         connect.commit()
 
 def update_movie_status(movie_id, status):
+    if status not in ["WATCHED", "UNWATCHED"]:
+            raise ValueError("Invalid status. Must be WATCHED or UNWATCHED")
     with sqlite3.connect("media_library.db") as connect:
         cursor = connect.cursor()
         cursor.execute("""--sql
             UPDATE movies SET status = ? WHERE id = ?
         """, (status, movie_id))
+        connect.commit()
+
+def delete_book(book_id):
+    with sqlite3.connect("media_library.db") as connect:
+        cursor = connect.cursor()
+        cursor.execute("""--sql
+                DELETE FROM books where id = ?
+                       """,(book_id,))
+        connect.commit()
+        
+def delete_movie(movie_id):
+    with sqlite3.connect("media_library.db") as connect:
+        cursor = connect.cursor()
+        cursor.execute("""--sql
+                DELETE FROM movies where id = ?
+                       """,(movie_id,))
         connect.commit()
 
 if __name__ == "__main__":
