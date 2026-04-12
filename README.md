@@ -1,36 +1,21 @@
 # 📚 Media Library
 
-A personal media tracking app for physical books and movies. Built with Python and SQLite.
+A personal media tracking app for books and movies. Built with Python and SQLite.
 
 ## Overview
 
-This project lets you manage a local directory of your physical book and movie collection — add entries, list them, search by title, track read/watched status, and delete entries.
-
-Built in phases:
-- **Phase 1** ✅ — Python + SQLite backend (complete)
-- **Phase 2** — Web frontend (Flask)
-- **Phase 3** — Migrate from SQLite to PostgreSQL
-
----
-
-## Features (Phase 1)
-
-- Add a book or movie to the library
-- List all books or movies
-- Search by title (partial match)
-- Mark a book as `READ` / `UNREAD`
-- Mark a movie as `WATCHED` / `UNWATCHED`
-- Delete a book or movie by ID
-- Status validation (rejects invalid input)
-- Automatically records the date each entry was added
+Manage a local collection of your books and movies — add entries, list them, search by title, track read/watched status, and delete entries.
 
 ---
 
 ## Project Structure
+
+```
 media-library/
 ├── database.py       # Creates the SQLite database and tables
-├── main.py           # All core functions
+├── main.py           # All core CRUD functions
 └── media_library.db  # Auto-generated SQLite database
+```
 
 ---
 
@@ -60,15 +45,15 @@ movies (
 
 ---
 
-## Usage
-
-### Setup
+## Setup
 
 ```bash
 python database.py   # Creates the database and tables
 ```
 
-### Example
+---
+
+## Usage
 
 ```python
 from main import *
@@ -81,7 +66,7 @@ add_movie("Interstellar", "Christopher Nolan", "Sci-Fi", 2014)
 list_book()
 list_movie()
 
-# Search
+# Search by title
 search_books("rising")
 search_movies("inter")
 
