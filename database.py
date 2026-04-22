@@ -3,7 +3,7 @@ import sqlite3
 connect = sqlite3.connect("media_library.db")
 cursor = connect.cursor()
 
-cursor.execute("""     
+cursor.execute("""--sql     
                CREATE TABLE IF NOT EXISTS books(
                    
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -16,7 +16,7 @@ cursor.execute("""
                )
                """)
 
-cursor.execute("""     
+cursor.execute("""--sql     
                CREATE TABLE IF NOT EXISTS movies(
                    
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
